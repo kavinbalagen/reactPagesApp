@@ -8,7 +8,7 @@ const FileSelector: React.FC<FileSelectorProps> = ({ onSelectFile }) => {
   const [files, setFiles] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch('/names.json')
+    fetch('/reactPagesApp/names.json')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');

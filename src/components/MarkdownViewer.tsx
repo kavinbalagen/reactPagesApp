@@ -10,7 +10,7 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ file }) => {
 
   useEffect(() => {
     if (file) {
-      fetch(`/docs/${file}`)
+      fetch(`/reactPagesApp/${file}.json`)
         .then(response => response.text())
         .then(text => setContent(text))
         .catch(error => console.error('Error fetching markdown file:', error));
