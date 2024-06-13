@@ -4,7 +4,7 @@ GIT_ACCESS_TOKEN=$1
 echo "GIT_ACCESS_TOKEN = $GIT_ACCESS_TOKEN"
 
 echo "DOWNLOADING DOCS"
-#curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
+curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
 
 
 echo "EXTRACTING DOCS"

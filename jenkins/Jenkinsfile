@@ -23,7 +23,7 @@ pipeline {
           
         stage("build") {
             steps {
-
+            sh "sh ./jenkins/commands.sh 123"
             sh "ls -alh"
             sh "cd public"
             sh "ls -alh"
