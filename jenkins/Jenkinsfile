@@ -13,7 +13,7 @@ pipeline {
 
     stages {
          
-        stage("cloning repositories") {
+        stage("display repositories") {
             steps {
 
              sh "ls -alh"
@@ -24,11 +24,12 @@ pipeline {
         stage("build") {
             steps {
 
-                echo 'cloning the target SDK language App'
-                dir('reactPagesApp') {
-                    git url: "https://github.com/kavinbalagen/reactPagesApp.git",
-                        branch: "main"
-                }            
+            sh "ls -alh"
+            sh "cd public"
+            sh "ls -alh"
+            sh "cd docs"
+            sh "ls -alh"
+
             }
 
         }
