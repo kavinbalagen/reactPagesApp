@@ -12,4 +12,4 @@ mkdir docs
 unzip docs.zip -d docs
 rm -r -f public/docs
 mv -f docs public/
-python ./jenkins/generate_index.py
+python3 ./jenkins/generate_index.py
