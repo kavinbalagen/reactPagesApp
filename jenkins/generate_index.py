@@ -11,7 +11,7 @@ def generate_index(path_to_directory):
     file_names.sort()
     return {"names":file_names}
 
-file_names=generate_index('../public/docs')
+file_names=generate_index('public/docs')
 with open('names.json','w+') as file:
     json.dump(file_names,file,indent=4)
             
