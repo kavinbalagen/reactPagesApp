@@ -1,5 +1,6 @@
 import os
 import json
+import sys
 
 print(os.getcwd())
 def generate_index(path_to_directory):
@@ -11,8 +12,9 @@ def generate_index(path_to_directory):
     file_names.sort()
     return {"names":file_names}
 
+print(sys.argv[1])
+
 file_names=generate_index('public/docs')
 with open('names.json','w+') as file:
     json.dump(file_names,file,indent=4)
             
-

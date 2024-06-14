@@ -1,4 +1,5 @@
 GIT_ACCESS_TOKEN=$1
+TARGET_LANGUAGE_REPOSITORY=$2
 
 echo "GIT_ACCESS_TOKEN = $GIT_ACCESS_TOKEN"
 
@@ -12,4 +13,4 @@ mkdir docs
 unzip docs.zip -d docs
 rm -r -f public/docs
 mv -f docs public/
-python3 ./jenkins/generate_index.py
+python3 ./jenkins/generate_index.py $TARGET_LANGUAGE_REPOSITORY
