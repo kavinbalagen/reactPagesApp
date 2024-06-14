@@ -23,7 +23,7 @@ pipeline {
           
         stage("build") {
             steps {
-            sh "sh ./jenkins/commands.sh 123 ABCDE"
+            sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} passed_message"
             sh "ls -alh"
             dir('public') {
                 sh "ls -alh"
