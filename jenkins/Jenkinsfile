@@ -25,11 +25,12 @@ pipeline {
             steps {
             sh "sh ./jenkins/commands.sh 123"
             sh "ls -alh"
-            sh "cd public"
-            sh "ls -alh"
-            sh "cd docs"
-            sh "ls -alh"
-
+            dir('public') {
+                sh "ls -alh"
+                }
+            dir('public/docs') {
+                sh "ls -alh"
+                }
             }
 
         }
