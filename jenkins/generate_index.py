@@ -1,7 +1,7 @@
 import os
 import json
 
- 
+print(os.getcwd())
 def generate_index(path_to_directory):
     file_names=[]
     for file in os.listdir(path_to_directory):
