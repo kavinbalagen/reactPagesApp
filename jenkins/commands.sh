@@ -5,6 +5,7 @@ echo "GIT_ACCESS_TOKEN = $GIT_ACCESS_TOKEN"
 
 echo "DOWNLOADING DOCS"
 #curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
+aws s3 cp "s3://inindca-api/sdkdocs/java/docs.zip" "." --recursive
 
 
 echo "EXTRACTING DOCS"
