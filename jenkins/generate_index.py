@@ -11,7 +11,7 @@ def generate_index(path_to_directory):
     file_names.sort()
     return {"names":file_names}
 
-print("BUILDING "+sys.argv[1])
+print("PYSCRIPT "+sys.argv[1])
 
 
 with open('names.json','w+') as file:
