@@ -1,9 +1,18 @@
+@Library(value='pipeline-library@master', changelog=false)
+import com.genesys.jenkins.Service
+ 
+final serviceBuild = new Service()
+
+
+
 pipeline {
 
-    agent any
+    agent { label 'dev_v2' }
 
-
-    environment {
+    tools {
+        jdk 'OpenJDK 17.0.4'
+    }
+      environment {
         GITHUB_TOKEN = credentials("GITHUB_TOKEN_KB")
 
     }
@@ -44,4 +53,3 @@ pipeline {
     }
 
 }
-
