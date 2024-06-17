@@ -14,6 +14,6 @@ def generate_index(path_to_directory):
 print("PYSCRIPT "+sys.argv[1])
 
 
-with open('public/docs/names.json','w+') as file:
+with open('public/names.json','w+') as file:
     file_names=generate_index('public/docs')
     json.dump(file_names,file,indent=4)
