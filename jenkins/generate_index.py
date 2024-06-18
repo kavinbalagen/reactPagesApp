@@ -20,10 +20,10 @@ def saving_index_file():
         json.dump(file_names,file,indent=4)
 
 def renaming_app():
-    for filename in ['package.json','package-lock.json','src/constants.ts']:
+    for filename in APP_NAME_LIST:
         with fileinput.FileInput(filename, inplace=True) as file:
             for line in file:
-                print(line.replace("{{APP_NAME}}", "java-test-repository"), end='')
+                print(line.replace("{{APP_NAME}}", sys.argv[1]), end='')
 
 if __name__ == '__main__':
     saving_index_file()

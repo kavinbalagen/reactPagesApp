@@ -11,6 +11,7 @@ pipeline {
 
     tools {
         jdk 'OpenJDK 17.0.4'
+        nodejs 'NodeJS 18.18.2'
     }
       environment {
         GITHUB_TOKEN = credentials("GITHUB_TOKEN")
