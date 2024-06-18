@@ -17,7 +17,8 @@ pipeline {
          
         stage("display repositories") {
             steps {
-
+                    npm install
+                    npm i -g tsx
              sh "ls -alh"
             }
         }
@@ -25,7 +26,7 @@ pipeline {
           
         stage("build") {
             steps {
-            sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} passed_message"
+            sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} java-test-repository"
             sh "ls -alh"
             dir('public') {
                 sh "ls -alh"
