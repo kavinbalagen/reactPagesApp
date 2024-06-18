@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import APP_NAME from 'constants';
 interface FileSelectorProps {
   onSelectFile: (file: string) => void;
 }
@@ -8,7 +8,7 @@ const FileSelector: React.FC<FileSelectorProps> = ({ onSelectFile }) => {
   const [files, setFiles] = useState<string[]>([]);
 
   useEffect(() => {
-    fetch('/reactPagesApp/names.json')
+    fetch(`/${APP_NAME}/names.json`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
