@@ -17,9 +17,13 @@ pipeline {
          
         stage("display repositories") {
             steps {
+                sh '''
                     npm install
+                    npm i -g pm2
                     npm i -g tsx
-             sh "ls -alh"
+                '''
+
+                    sh "ls -alh"
             }
         }
 
