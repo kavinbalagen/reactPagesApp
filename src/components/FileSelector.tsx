@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import APP_NAME from 'constants';
+import {APP_NAME} from './Constants';
 interface FileSelectorProps {
   onSelectFile: (file: string) => void;
 }

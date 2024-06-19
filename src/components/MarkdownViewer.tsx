@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Markdown from 'markdown-to-jsx'
-import APP_NAME from 'constants';
+import {APP_NAME} from './Constants';
 
 interface MarkdownViewerProps {
   file: string;
