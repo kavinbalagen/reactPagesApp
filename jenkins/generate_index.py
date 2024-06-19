@@ -3,7 +3,7 @@ import json
 import sys
 import fileinput
 
-APP_NAME_LIST=['package.json','package-lock.json','src/constants.ts']
+APP_NAME_LIST=['package.json','package-lock.json','src/components/constants.ts']
 
 def generate_index(path_to_directory):
     file_names=[]
