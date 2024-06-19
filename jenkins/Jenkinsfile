@@ -48,7 +48,6 @@ pipeline {
                  sh "ls -alh"
 
                 echo 'Starting the build Stage'
-                sh 'npm run deploy'
             }
         }
 
