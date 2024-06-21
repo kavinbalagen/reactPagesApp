@@ -34,7 +34,7 @@ pipeline {
                                     sh 'git switch --orphan react-app-staging'     
                     }
 
-                    sh 'cp /reactApp/* java-test-repository/'
+                    sh 'cp reactApp/* java-test-repository/'
                 }
                 }
             }
