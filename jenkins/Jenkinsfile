@@ -9,7 +9,7 @@ pipeline {
 
     environment {
         GITHUB_TOKEN = credentials("GITHUB_TOKEN")
-
+        FIRST_NAME = "KAVIN"
     }
 
     stages {
@@ -17,12 +17,25 @@ pipeline {
 
         stage("Process Document") {
             steps {
-            sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} java-test-repository"
+            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} java-test-repository"
             dir('reactApp/public/docs') {
                 sh "ls -alh"
+                echo "${FIRST_NAME} ${env.FIRST_NAME}"
                 }
             }
         }
+
+        stage("Clone Repositroy") {
+            steps {
+                script{
+                    withCredentials([string(credentialsId: "${GITHUB_TOKEN}",variable: 'GITHUB_TOKEN')]){
+                        sh 'git clone https://github.com/kavinbalagen/java-test-repository.git'
+                    }
+                }
+            }
+        }
+
+
         stage("Install Dependencies") {
             steps {
             echo 'Installing Dependencies'
