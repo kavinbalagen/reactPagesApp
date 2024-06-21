@@ -36,6 +36,7 @@ pipeline {
 
                     sh 'cp /reactApp/* /java-test-repository/'
                 }
+                }
             }
         }
 
