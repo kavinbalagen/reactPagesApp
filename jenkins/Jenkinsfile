@@ -9,57 +9,14 @@ pipeline {
 
     environment {
         GITHUB_TOKEN = credentials("GITHUB_TOKEN")
-        FIRST_NAME = "KAVIN"
     }
 
     stages {
          
 
-        stage("Process Document") {
+        stage("DEPLOYING REACT APP") {
             steps {
-            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} java-test-repository"
-            dir('reactApp/public/docs') {
-                sh "ls -alh"
-                echo "${FIRST_NAME} ${env.FIRST_NAME}"
-                }
-            }
-        }
-
-        stage("Clone Repositroy") {
-            steps {
-                script{
-                    withCredentials([string(credentialsId: 'GITHUB_TOKEN',variable: 'GITHUB_TOKEN')]){
-                    sh 'git clone https://github.com/kavinbalagen/java-test-repository.git'
-                    dir('java-test-repository/') {
-                                    sh 'git switch --orphan react-app-staging'     
-                    }
-
-                    sh 'cp -r reactApp/* java-test-repository/'
-                }
-                }
-            }
-        }
-
-
-        stage("Install Dependencies") {
-            steps {
-            echo 'Installing Dependencies'
-            dir('java-test-repository/') {
-                sh '''
-                    npm install
-                    npm i -g tsx
-                '''
-                }
-            }
-        }
-
-        stage("post-build") {
-            steps {
-            echo 'Deploying the App'
-            dir('java-test-repository/') {
-                sh "ls -alh"
-                sh 'npm run deploy'
-                }
+            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} java-test-repository https://github.com/kavinbalagen/java-test-repository.git"
             }
         }
 
