@@ -25,9 +25,9 @@ pipeline {
             }
         }
         stage("Install Dependencies") {
-            echo 'Installing Dependencies'
             steps {
-             dir('reactApp/') {
+            echo 'Installing Dependencies'
+            dir('reactApp/') {
                 sh '''
                     npm install
                     npm i -g tsx
