@@ -29,8 +29,12 @@ pipeline {
             steps {
                 script{
                     withCredentials([string(credentialsId: 'GITHUB_TOKEN',variable: 'GITHUB_TOKEN')]){
-                        sh 'git clone https://github.com/kavinbalagen/java-test-repository.git'
+                    sh 'git clone https://github.com/kavinbalagen/java-test-repository.git'
+                    dir('java-test-repository/') {
+                                    sh 'git switch --orphan react-app-staging'     
                     }
+
+                    sh 'cp /reactApp/* /java-test-repository/'
                 }
             }
         }
@@ -39,7 +43,7 @@ pipeline {
         stage("Install Dependencies") {
             steps {
             echo 'Installing Dependencies'
-            dir('reactApp/') {
+            dir('java-test-repository/') {
                 sh '''
                     npm install
                     npm i -g tsx
@@ -51,7 +55,7 @@ pipeline {
         stage("post-build") {
             steps {
             echo 'Deploying the App'
-            dir('reactApp/') {
+            dir('java-test-repository/') {
                 sh "ls -alh"
                 sh 'npm run deploy'
                 }

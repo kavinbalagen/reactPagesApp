@@ -1,1 +1,1 @@
-export const APP_NAME = "reactPagesApp";
+export const APP_NAME = "{{APP_NAME}}";
