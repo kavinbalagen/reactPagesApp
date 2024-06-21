@@ -15,45 +15,33 @@ pipeline {
 
     stages {
          
-        stage("display repositories") {
-            steps {
 
-             dir('reactApp/public/docs') {
-                sh '''
-                    npm install
-                    npm i -g pm2
-                    npm i -g tsx
-                '''
-
-                    sh "ls -alh"                
-                    }
-            }
-
-        }
-        stage("build") {
+        stage("Process Document") {
             steps {
             sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} java-test-repository"
-            sh "ls -alh"
-            dir('reactApp/public') {
-                sh "ls -alh"
-                }
             dir('reactApp/public/docs') {
                 sh "ls -alh"
                 }
             }
-
+        }
+        stage("Install Dependencies") {
+            echo 'Installing Dependencies'
+            steps {
+             dir('reactApp/') {
+                sh '''
+                    npm install
+                    npm i -g tsx
+                '''
+                }
+            }
         }
 
-                 
         stage("post-build") {
             steps {
-                 sh "ls -alh"
-
-                echo 'Starting the build Stage'
-                dir('reactApp/') {
+            echo 'Deploying the App'
+            dir('reactApp/') {
                 sh "ls -alh"
                 sh 'npm run deploy'
-
                 }
             }
         }
