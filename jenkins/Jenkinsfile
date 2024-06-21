@@ -28,7 +28,7 @@ pipeline {
         stage("Clone Repositroy") {
             steps {
                 script{
-                    withCredentials([string(credentialsId: "${GITHUB_TOKEN}",variable: 'GITHUB_TOKEN')]){
+                    withCredentials([string(credentialsId: 'GITHUB_TOKEN',variable: 'GITHUB_TOKEN')]){
                         sh 'git clone https://github.com/kavinbalagen/java-test-repository.git'
                     }
                 }
