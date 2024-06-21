@@ -12,7 +12,7 @@ pwd
 mkdir docs
 unzip docs.zip -d docs
 rm -r -f docs.zip
-rm -r -f public/docs
-mv -f docs public/
+rm -r -f reactApp/public/docs
+mv -f docs reactApp/public/
 python3 ./jenkins/generate_index.py $TARGET_LANGUAGE_REPOSITORY
 

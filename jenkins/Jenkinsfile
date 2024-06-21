@@ -9,7 +9,7 @@ pipeline {
 
 
     environment {
-        GITHUB_TOKEN = credentials("GITHUB_TOKEN_KB")
+        GITHUB_TOKEN = credentials("GITHUB_TOKEN")
 
     }
 
@@ -17,25 +17,27 @@ pipeline {
          
         stage("display repositories") {
             steps {
+
+             dir('reactApp/public/docs') {
                 sh '''
                     npm install
                     npm i -g pm2
                     npm i -g tsx
                 '''
 
-                    sh "ls -alh"
+                    sh "ls -alh"                
+                    }
             }
-        }
 
-          
+        }
         stage("build") {
             steps {
             sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} java-test-repository"
             sh "ls -alh"
-            dir('public') {
+            dir('reactApp/public') {
                 sh "ls -alh"
                 }
-            dir('public/docs') {
+            dir('reactApp/public/docs') {
                 sh "ls -alh"
                 }
             }
@@ -48,7 +50,11 @@ pipeline {
                  sh "ls -alh"
 
                 echo 'Starting the build Stage'
+                dir('reactApp/') {
+                sh "ls -alh"
                 sh 'npm run deploy'
+
+                }
             }
         }
 

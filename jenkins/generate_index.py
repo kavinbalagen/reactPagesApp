@@ -3,9 +3,9 @@ import json
 import sys
 import fileinput
 
-APP_NAME_LIST=['package.json','package-lock.json','src/components/Constants.tsx']
-DOCS_DIR = 'public/docs'
-NAMES_DIR = 'public/names.json'
+APP_NAME_LIST=['reactApp/package.json','reactApp/package-lock.json','reactApp/src/components/Constants.tsx']
+DOCS_DIR = 'reactApp/public/docs'
+NAMES_DIR = 'reactApp/public/names.json'
 
 def process_files():
     file_names=[]
