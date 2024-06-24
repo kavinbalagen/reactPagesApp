@@ -20,10 +20,12 @@ pipeline {
             }
         }
         stage("PUSHING REACT APP") {
+            steps{
             dir('reactApp') {
                 sh "git status"
                 
                 }
+            }
         }
 
     }
