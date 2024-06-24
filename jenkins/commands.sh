@@ -23,11 +23,13 @@ rm -r -f $TARGET_LANGUAGE_REPOSITORY
 git clone $TARGET_LANGUAGE_REPOSITORY_URL
 cd $TARGET_LANGUAGE_REPOSITORY
 git checkout gh-pages
+git status
 cd ..
 cp -rf reactApp/* $TARGET_LANGUAGE_REPOSITORY/
+git status
 git add .
 git commit -m "added files"
-git push origin gh-pages -f
+git push -f
 
 echo "DEPLOYING APP"
 # BUILD & DEPLOYING APP
