@@ -21,7 +21,7 @@ pipeline {
         }
         stage("PUSHING REACT APP") {
             steps{
-            dir('reactApp') {
+            dir('java-test-repository') {
                 sh "git status"
                 
                 }
