@@ -19,17 +19,13 @@ python3 ./jenkins/generate_index.py $TARGET_LANGUAGE_REPOSITORY
 
 echo "BUILDING APP"
 # CLONING TARGET REPO & CREATING STAGING BRANCH
-rm -rf .git
 rm -r -f $TARGET_LANGUAGE_REPOSITORY
+rm -rf .git
 git clone $TARGET_LANGUAGE_REPOSITORY_URL
 cd $TARGET_LANGUAGE_REPOSITORY
-git checkout gh-pages
-git status
+git switch --orphan react-app-staging
 cd ..
-cp -rf reactApp/* $TARGET_LANGUAGE_REPOSITORY/
-git add .
-git commit -m "added files"
-git push origin HEAD:gh-pages -f
+cp -r reactApp/* $TARGET_LANGUAGE_REPOSITORY/
 
 echo "DEPLOYING APP"
 # BUILD & DEPLOYING APP
