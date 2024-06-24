@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
-      <h1>Markdown Viewer</h1>
+      <h1>Document Viewer</h1>
       <FileSelector onSelectFile={setSelectedFile} />
       <MarkdownViewer file={selectedFile} />
     </div>
