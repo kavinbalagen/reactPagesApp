@@ -19,6 +19,12 @@ pipeline {
             sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} java-test-repository https://github.com/kavinbalagen/java-test-repository.git"
             }
         }
+        stage("PUSHING REACT APP") {
+            dir('reactApp') {
+                sh "git status"
+                
+                }
+        }
 
     }
 
