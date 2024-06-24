@@ -10,7 +10,7 @@ pipeline {
     agent { label 'dev_v2' }
 
     tools {
-        nodejs 'NodeJS 18.18.2'
+        nodejs 'NodeJS 18.14.2'
     }
       environment {
         GITHUB_TOKEN = credentials("GITHUB_TOKEN")
