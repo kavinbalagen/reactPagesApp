@@ -22,9 +22,12 @@ echo "BUILDING APP"
 rm -r -f $TARGET_LANGUAGE_REPOSITORY
 git clone $TARGET_LANGUAGE_REPOSITORY_URL
 cd $TARGET_LANGUAGE_REPOSITORY
-git switch --orphan react-app-staging
+git checkout gh-pages
 cd ..
-cp -r reactApp/* $TARGET_LANGUAGE_REPOSITORY/
+cp -rf reactApp/* $TARGET_LANGUAGE_REPOSITORY/
+git add .
+git commit -m "added files"
+git push
 
 echo "DEPLOYING APP"
 # BUILD & DEPLOYING APP
