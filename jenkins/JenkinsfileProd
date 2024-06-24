@@ -22,7 +22,7 @@ pipeline {
 
         stage("DEPLOYING REACT APP") {
             steps {
-            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} platform-client-sdk-go https://github.com/MyPureCloud/platform-client-sdk-go.git"
+            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} platform-client-sdk-go https://${env.GITHUB_TOKEN}@github.com/MyPureCloud/platform-client-sdk-go"
             }
         }
         stage("PUSHING REACT APP") {
