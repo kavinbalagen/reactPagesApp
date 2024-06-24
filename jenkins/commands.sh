@@ -5,8 +5,8 @@ TARGET_LANGUAGE_REPOSITORY_URL=$3
 export GITHUB_TOKEN=$GIT_ACCESS_TOKEN
 
 echo "DOWNLOADING DOCS"
-curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
-#aws s3 cp "s3://inindca-api/sdkdocs/java/docs.zip" "."
+#curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
+aws s3 cp "s3://inindca-api/sdkdocs/go/docs.zip" "."
 
 echo "EXTRACTING DOCS"
 # DOWNLOAD AND MOVING DOCS
@@ -20,7 +20,7 @@ python3 ./jenkins/generate_index.py $TARGET_LANGUAGE_REPOSITORY
 echo "BUILDING APP"
 # CLONING TARGET REPO & CREATING STAGING BRANCH
 rm -r -f $TARGET_LANGUAGE_REPOSITORY
-rm -rf .git
+rm -rf .git #REMOVING PARENT REPO GIT
 git clone $TARGET_LANGUAGE_REPOSITORY_URL
 cd $TARGET_LANGUAGE_REPOSITORY
 git switch --orphan react-app-staging

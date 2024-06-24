@@ -39,5 +39,3 @@ if __name__ == '__main__':
     saving_index_file()
     renaming_app()
     ### TO BE COMMENTED OUT ###
-
-    print("PYSCRIPT "+sys.argv[1])

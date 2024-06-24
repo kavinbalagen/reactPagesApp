@@ -10,7 +10,6 @@ pipeline {
     agent { label 'dev_v2' }
 
     tools {
-        jdk 'OpenJDK 17.0.4'
         nodejs 'NodeJS 18.18.2'
     }
       environment {
@@ -20,36 +19,18 @@ pipeline {
 
     stages {
          
-        stage("display repositories") {
-            steps {
 
-             sh "ls -alh"
+        stage("DEPLOYING REACT APP") {
+            steps {
+            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} platform-client-sdk-go https://github.com/MyPureCloud/platform-client-sdk-go.git"
             }
         }
-
-          
-        stage("build") {
-            steps {
-            sh "sh ./jenkins/commands.sh ${GITHUB_TOKEN} passed_message"
-            sh "ls -alh"
-            dir('public') {
-                sh "ls -alh"
+        stage("PUSHING REACT APP") {
+            steps{
+            dir('platform-client-sdk-go') {
+                sh "git status"
+                
                 }
-            dir('public/docs') {
-                sh "ls -alh"
-                }
-            }
-
-        }
-
-                 
-        stage("post-build") {
-            steps {
-                 sh "ls -alh"
-
-                echo 'Starting the build Stage'
-                sh 'npm run deploy'
-
             }
         }
 
