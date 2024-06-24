@@ -27,7 +27,7 @@ cd ..
 cp -rf reactApp/* $TARGET_LANGUAGE_REPOSITORY/
 git add .
 git commit -m "added files"
-git push
+git push origin gh-pages -f
 
 echo "DEPLOYING APP"
 # BUILD & DEPLOYING APP
