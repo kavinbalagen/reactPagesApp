@@ -13,7 +13,7 @@ def process_files():
     for file in os.listdir(DOCS_DIR):
         file_path = os.path.join(DOCS_DIR,file)
         if os.path.isfile(file_path) and file.endswith('.md'):
-            file_names.append(file[:-3]+'.json')
+            file_names.append(file[:-3])
         else:
             os.remove(file_path)
     # renaming to .json, thank github :(
