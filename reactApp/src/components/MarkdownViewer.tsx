@@ -23,7 +23,7 @@ const MarkdownViewer: React.FC<MarkdownViewerProps> = ({ file }) => {
       {file ? (
         <Markdown>{content}</Markdown>
       ) : (
-        <p>Please select a document.</p>
+        <p>Please select a document to render.</p>
       )}
     </div>
   );
