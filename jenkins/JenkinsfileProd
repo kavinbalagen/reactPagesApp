@@ -20,17 +20,9 @@ pipeline {
     stages {
          
 
-        stage("DEPLOYING REACT APP") {
+        stage("BUILDING & DEPLOYING REACT APP") {
             steps {
-            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} platform-client-sdk-go https://${env.GITHUB_TOKEN}@github.com/MyPureCloud/platform-client-sdk-go"
-            }
-        }
-        stage("PUSHING REACT APP") {
-            steps{
-            dir('platform-client-sdk-go') {
-                sh "git status"
-                
-                }
+            sh "sh ./jenkins/commands.sh ${env.GITHUB_TOKEN} platform-client-sdk-go go https://${env.GITHUB_TOKEN}@github.com/MyPureCloud/platform-client-sdk-go"
             }
         }
 

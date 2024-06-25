@@ -1,12 +1,12 @@
 GIT_ACCESS_TOKEN=$1
 TARGET_LANGUAGE_REPOSITORY=$2
-TARGET_LANGUAGE_REPOSITORY_URL=$3
-
+TARGET_LANGUAGE_BUCKET_PATH=$3
+TARGET_LANGUAGE_REPOSITORY_URL=$4
 export GITHUB_TOKEN=$GIT_ACCESS_TOKEN
 
 echo "DOWNLOADING DOCS"
 #curl https://github.com/kavinbala96/weatherapp/raw/main/docs.zip -L -O -J
-aws s3 cp "s3://inindca-api/sdkdocs/go/docs.zip" "."
+aws s3 cp "s3://inindca-api/sdkdocs/$TARGET_LANGUAGE_BUCKET_PATH/docs.zip" "."
 
 echo "EXTRACTING DOCS"
 # DOWNLOAD AND MOVING DOCS
@@ -15,7 +15,7 @@ unzip docs.zip -d docs
 rm -r -f docs.zip
 rm -r -f reactApp/public/docs
 mv -f docs reactApp/public/
-python3 ./jenkins/generate_index.py $TARGET_LANGUAGE_REPOSITORY
+python3 ./jenkins/process_documents.py $TARGET_LANGUAGE_REPOSITORY
 
 echo "BUILDING APP"
 # CLONING TARGET REPO & CREATING STAGING BRANCH
